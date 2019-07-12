@@ -2,8 +2,15 @@
   "version": 2,
   "name": "my-nodejs-project",
   "builds": [
-    { "src": "public/**/*", "use": "@now/static" },
+    { "src": "public", "use": "@now/static" },
+    { "src": "public/images/**", "use": "@now/static" },
+    { "src": "public/javascripts/**", "use": "@now/static" },
+    { "src": "public/stylesheets/**", "use": "@now/static" },
+    { "src": "public/uploads/**", "use": "@now/static" },
     { "src": "app.js", "use": "@now/node" }
   ],
-  "routes": [{ "src": "/", "dest": "app.js" }]
+  "routes": [
+    { "src": "/(.*)", "dest": "app.js" },
+    { "src": "/(.*)", "dest": "public/$1" }
+  ]
 }
