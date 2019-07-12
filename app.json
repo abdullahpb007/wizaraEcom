@@ -1,0 +1,17 @@
+{
+    "name": "ecommerce",
+    "description": "A fully functioning Node.js shopping cart with Stripe, PayPal and Authorize.net payments.",
+    "repository": "https://github.com/VikyVilla/ecommerce",
+    "logo": "https://github.com/VikyVilla/ecommerce/master/public/images/logo.png",
+    "keywords": [
+        "Shopping cart",
+        "express",
+        "mongodb",
+        "nodejs",
+        "ecommerce",
+        "paypal",
+        "lunr",
+        "cart",
+        "shopping"
+    ]
+}

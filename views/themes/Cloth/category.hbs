@@ -1,0 +1,176 @@
+{{> themes/Cloth/front-menu}}
+
+{{#ifCond ident '==' "all"}}
+<section id="hero" style="background-image: url('https://www.jojo.co.za/wp-content/uploads/2018/08/Agriculture-Header-New.jpg');">
+                            <div class="grid-container">
+                    <p class="hero__inner">
+                    </p><h1 class="hero__title">Listing all products</h1>
+                                                    <h6 class="hero__intro" style="color:#FFF">The ideal solution for urban environments with limited space and accessibility.</h6></div>
+                                            <!-- .hero__inner -->
+
+            </section>
+
+{{/ifCond}}
+
+
+{{#ifCond ident '==' "waterstoragetanks"}}
+<section id="hero" style="background-image: url('https://www.jojo.co.za/wp-content/uploads/2018/08/JOJO-Website-Water-Storage-Solution-1.jpg');">
+                            <div class="grid-container">
+                    <p class="hero__inner">
+                    </p><h1 class="hero__title">Water Storage Tanks</h1>
+                                                    <h6 class="hero__intro" style="color:#FFF">The ideal solution for urban environments with limited space and accessibility.</h6></div>
+                                            <!-- .hero__inner -->
+
+            </section>
+
+{{/ifCond}}
+
+{{#ifCond ident '==' "waterfiltration"}}
+<section id="hero" style="background-image: url('https://www.jojo.co.za/wp-content/uploads/2019/03/7.Filter-Range.jpg');">
+                            <div class="grid-container">
+                    <p class="hero__inner">
+                    </p><h1 class="hero__title">Water Filtration</h1>
+                                                    <h6 class="hero__intro" style="color:#FFF">The ideal solution for urban environments with limited space and accessibility.</h6></div>
+                                            <!-- .hero__inner -->
+
+            </section>
+
+{{/ifCond}}
+
+{{#ifCond ident '==' "chemicalstoragetanks"}}
+<section id="hero" style="background-image: url('https://www.jojo.co.za/wp-content/uploads/2019/03/8.Pump-Solutions.jpg');">
+                            <div class="grid-container">
+                    <p class="hero__inner">
+                    </p><h1 class="hero__title">Chemical Storage Tanks</h1>
+                                                    <h6 class="hero__intro" style="color:#FFF">The ideal solution for urban environments with limited space and accessibility.</h6></div>
+                                            <!-- .hero__inner -->
+
+            </section>
+
+{{/ifCond}}
+
+{{#ifCond ident '==' "sanitationtanks"}}
+<section id="hero" style="background-image: url('https://www.jojo.co.za/wp-content/themes/jojotanks/images/products-hero.jpg');">
+                            <div class="grid-container">
+                    <p class="hero__inner">
+                    </p><h1 class="hero__title">Sanitation Tanks</h1>
+                                                    <h6 class="hero__intro" style="color:#FFF">The ideal solution for urban environments with limited space and accessibility.</h6></div>
+                                            <!-- .hero__inner -->
+
+            </section>
+
+{{/ifCond}}
+
+{{#ifCond ident '==' "agriculturalproducts"}}
+<section id="hero" style="background-image: url('https://www.jojo.co.za/wp-content/uploads/2018/08/JOJO-Website-Garden-Home-Storage-Solutions.jpg');">
+                            <div class="grid-container">
+                    <p class="hero__inner">
+                    </p><h1 class="hero__title">Agricultural Products</h1>
+                                                    <h6 class="hero__intro" style="color:#FFF">The ideal solution for urban environments with limited space and accessibility.</h6></div>
+                                            <!-- .hero__inner -->
+
+            </section>
+
+{{/ifCond}}
+
+{{#ifCond ident '==' "gardenandhomeproducts"}}
+<section id="hero" style="background-image: url('https://www.jojo.co.za/wp-content/uploads/2018/08/JOJO-Website-Garden-Home-Storage-Solutions.jpg');">
+                            <div class="grid-container">
+                    <p class="hero__inner">
+                    </p><h1 class="hero__title">Garden and Home Products</h1>
+                                                    <h6 class="hero__intro" style="color:#FFF">The ideal solution for urban environments with limited space and accessibility.</h6></div>
+                                            <!-- .hero__inner -->
+
+            </section>
+
+{{/ifCond}}
+
+{{#ifCond ident '==' "pumpproducts"}}
+<section id="hero" style="background-image: url('https://www.jojo.co.za/wp-content/uploads/2018/08/JOJO-Website-Garden-Home-Storage-Solutions.jpg');">
+                            <div class="grid-container">
+                    <p class="hero__inner">
+                    </p><h1 class="hero__title">Pump Products</h1>
+                                                    <h6 class="hero__intro" style="color:#FFF">The ideal solution for urban environments with limited space and accessibility.</h6></div>
+                                            <!-- .hero__inner -->
+
+            </section>
+
+{{/ifCond}}
+<style>
+.thumb {
+  background-color:#e6e7e8;
+  margin-right:3%;
+}
+.thumb:hover{
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19)!important;
+  cursor : pointer;
+}
+
+</style>
+<div class="productsWrapper col-md-8 col-md-offset-2">
+    {{#if filtered}}
+        <div class="product-layout col-md-12">
+            {{#if menuLink}}
+            <h4>Category: <strong>{{menuLink.title}}</strong></h4>
+            {{else}}
+            <h4>Search results: <strong>{{searchTerm}}</strong></h4>
+            {{/if}}
+        </div>
+    {{/if}}
+    <div class="row product-layout">
+        {{#ifCond results.length '==' 0}}
+            <div class="col-md-12">
+                <p class="text-danger">No products found</p>
+            </div>
+        {{/ifCond}}
+        {{#each results}}
+            <div class="{{perRowClass ../config.productsPerRow}}" >
+                <div class="thumbnail thumb" >
+                    {{#if productPermalink}}
+                      <a href="/product/{{this.productPermalink}}" >
+                        <div class="product_wrapper" style="padding-top:80px">
+                                <div class="vertical-center thumbnail-image-container">
+                                    {{#if productImage}}
+                                        <img class="img-responsive" src="{{this.productImage}}" alt="...">
+                                    {{else}}
+                                        <img class="img-responsive" src="/uploads/placeholder.png" alt="...">
+                                    {{/if}}
+                                </div>
+                                <h3 class="product-title product-title-home top-pad-10" style="margin: 0;color: #575756;padding: 0 20p;">
+                                    {{this.productTitle}}
+                                </h3>
+                            </div>
+                        </a>
+                    {{else}}
+                        <a href="/product/{{this._id}}">
+                            <div class="vertical-center thumbnail-image-container">
+                                {{#if productImage}}
+                                    <img class="img-responsive" src="{{this.productImage}}" alt="...">
+                                {{else}}
+                                    <img class="img-responsive" src="/uploads/placeholder.png" alt="...">
+                                {{/if}}
+                            </div>
+                            <h3 class="product-title product-title-home top-pad-10" style="margin: 0;color: #575756;padding: 0 20p;">
+                                {{this.productTitle}}
+                            </h3>
+                        </a>
+                    {{/if}}
+                    <h3 class="product-price text-center">
+                        {{currencySymbol ../config.currencySymbol}}{{formatAmount productPrice}}
+                    </h3>
+                    <p class="text-center">
+                        <a class="btn btn-primary add-to-cart" data-id="{{this._id}}" data-link="{{this.productPermalink}}" data-has-options="{{checkProductOptions this.productOptions}}" role="button">Add to cart</a>
+                    </p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+<input type="hidden" id="productsPerPage" value="{{productsPerPage}}" >
+<input type="hidden" id="pageNum" value="{{pageNum}}">
+<input type="hidden" id="totalProductCount" value="{{totalProductCount}}">
+<input type="hidden" id="paginateUrl" value="{{paginateUrl}}">
+<input type="hidden" id="searchTerm" value="{{searchTerm}}">
+<div class="col-md-12">
+    <div id="pager" class="text-center"></div>
+</div>

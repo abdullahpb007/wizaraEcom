@@ -1,0 +1,84 @@
+<style>
+.dropbtn {
+  background-color: #563d7c;
+  color: #cbbde2;
+  padding: 16px;
+  font-size: 20px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #FFF;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {color: #FFF;}
+</style>
+<nav style="margin-bottom: 0px;box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12)!important;background-color:#563d7c;border-radius:0px;" class="navbar navbar-default navbarMenuWrapper" >
+    <div class="container-fluid">
+        <div class="col-md-12  navbarMenu">
+            <ul class="nav navbar-nav">
+
+                <li {{#unless searchTerm}}class="navActive"  {{/unless}}><a href="/" style="color:#cbbde2">Home</a></li>
+                <li {{#unless searchTerm}}  {{/unless}}><a href="/prod" style="color:#cbbde2">Products</a></li>
+                <li><div class="dropdown">
+                  <button class="dropbtn">Resources</button>
+                  <div class="dropdown-content">
+                    <a href="/warranty" style="border-bottom: 1px solid black;">Warranty Registration</a>
+                    <a href="/resources" style="border-bottom: 1px solid black;">Useful information</a>
+                    <a href="/faqs">FAQs</a>
+                  </div>
+                </div>
+              </li>
+                {{#each menu.items}}
+                    <li
+                    {{#menuMatch this.title @root.searchTerm}}{{/menuMatch}}
+                    {{#menuMatch this.title @root.title}}{{/menuMatch}}>
+                        <a href="{{this.link}}" style="color:#cbbde2;">{{this.title}}</a>
+                    </li>
+                {{/each}}
+                <li class="pull-right col-md-3 searchBarWrapper">
+                    <div class="search-bar-input input-group searchMenuLocation-{{config.menuLocation}} searchProPerRow-{{config.productsPerRow}}">
+                        <input type="text" name="frm_search" id="frm_search" class="form-control" style="border: 2px solid #ffe484;" placeholder="Search the shop">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" style="color:#ffe484;background-color: #563d7c;border-color: #ffe484;" id="btn_search" type="submit">Search</button>
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- <script>
+console.log('Client-side code running');
+
+const button = document.getElementById('viky');
+button.addEventListener('click', function(e) {
+});
+</script> -->

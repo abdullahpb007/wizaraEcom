@@ -1,0 +1,81 @@
+{{> themes/Cloth/front-menu}}
+<link rel="stylesheet" href="//unpkg.com/grapesjs/dist/css/grapes.min.css">
+<script src="//unpkg.com/grapesjs"></script>
+<script src="//unpkg.com/grapesjs-tooltip"></script>
+<script src="//unpkg.com/grapesjs-blocks-flexbox"></script>
+<script src="//unpkg.com/grapesjs-navbar"></script>
+<script src="//unpkg.com/grapesjs-blocks-basic"></script>
+<script src="//unpkg.com/grapesjs-plugin-forms"></script>
+<script src="//unpkg.com/grapesjs-tabs"></script>
+<script src="//unpkg.com/grapesjs-custom-code"></script>
+<script src="//unpkg.com/grapesjs-parser-postcss"></script>
+
+<!-- <script src="//unpkg.com/grapesjs-plugin-export"></script> -->
+
+
+<div class="container">
+  <div id="gjs">
+    <div class="txt-red">Hello world!</div>
+    <style>.txt-red{color: red}</style>
+  </div>
+
+<script type="text/javascript">
+var editor = grapesjs.init
+   ({
+      // height: '100%',
+      fromElement: 1,
+      fromElement: true,
+      clearOnRender: true,
+      container : '#gjs',
+      plugins: ['grapesjs-tooltip','gjs-blocks-flexbox','gjs-navbar','grapesjs-blocks-basic','grapesjs-plugin-forms','grapesjs-tabs','grapesjs-custom-code','grapesjs-parser-postcss'],
+      storageManager: {
+      autosave: false,
+      setStepsBeforeSave: 1,
+      type: 'remote',
+      urlStore: 'http://localhost:1111/grape',
+      urlLoad: 'http://localhost:1111/grape/load',
+      contentTypeJson: true,
+      },
+      pluginsOpts: {
+        'grapesjs-blocks-basic':{},
+        'grapesjs-tooltip': { /* options */ },
+        'gjs-blocks-flexbox':{/*options  */},
+        'gjs-navbar':{},
+        'grapesjs-plugin-forms':{},
+        'grapesjs-tabs':{},
+        'grapesjs-custom-code':{},
+        'grapesjs-plugin-export':{}
+      },
+      canvas: {
+        styles: [
+          'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',
+        ]
+      }
+  });
+
+  editor.Panels.addButton
+  ('options',
+    [{
+      id: 'save-db',
+      className: 'fa fa-floppy-o',
+      command: 'save-db',
+      attributes: {title: 'Save DB'}
+    }]
+  );
+
+// Add the command
+editor.Commands.add
+('save-db', {
+    run: function(editor, sender)
+    {
+      console.log("12345");
+      sender && sender.set('active'); // turn off the button
+      editor.store();
+    }
+});
+editor.on('storage:load', function(e) { console.log('Loaded ', e);});
+editor.on('storage:store', function(e) { console.log('Stored ', e);});
+  // editor.runCommand('gjs-export-zip');
+
+</script>
+</div>

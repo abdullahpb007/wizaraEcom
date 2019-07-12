@@ -1,0 +1,167 @@
+{{> themes/Cloth/front-menu}}
+
+{{#ifCond ident '==' "all"}}
+<section id="hero" style="background-image: url('https://www.jojo.co.za/wp-content/uploads/2018/08/Agriculture-Header-New.jpg');">
+                            <div class="grid-container">
+                    <p class="hero__inner">
+                    </p><h1 class="hero__title">Listing all group</h1>
+                                                    <h6 class="hero__intro" style="color:#FFF">The ideal solution for urban environments with limited space and accessibility.</h6></div>
+                                            <!-- .hero__inner -->
+
+            </section>
+
+{{/ifCond}}
+
+
+{{#ifCond ident '==' "waterstoragetanks"}}
+<section id="hero" style="background-image: url('https://www.jojo.co.za/wp-content/uploads/2018/08/JOJO-Website-Water-Storage-Solution-1.jpg');">
+                            <div class="grid-container">
+                    <p class="hero__inner">
+                    </p><h1 class="hero__title">Water Storage Tanks</h1>
+                                                    <h6 class="hero__intro" style="color:#FFF">The ideal solution for urban environments with limited space and accessibility.</h6></div>
+                                            <!-- .hero__inner -->
+
+            </section>
+
+{{/ifCond}}
+
+{{#ifCond ident '==' "waterfiltration"}}
+<section id="hero" style="background-image: url('https://www.jojo.co.za/wp-content/uploads/2019/03/7.Filter-Range.jpg');">
+                            <div class="grid-container">
+                    <p class="hero__inner">
+                    </p><h1 class="hero__title">Water Filtration</h1>
+                                                    <h6 class="hero__intro" style="color:#FFF">The ideal solution for urban environments with limited space and accessibility.</h6></div>
+                                            <!-- .hero__inner -->
+
+            </section>
+
+{{/ifCond}}
+
+{{#ifCond ident '==' "chemicalstoragetanks"}}
+<section id="hero" style="background-image: url('https://www.jojo.co.za/wp-content/uploads/2019/03/8.Pump-Solutions.jpg');">
+                            <div class="grid-container">
+                    <p class="hero__inner">
+                    </p><h1 class="hero__title">Chemical Storage Tanks</h1>
+                                                    <h6 class="hero__intro" style="color:#FFF">The ideal solution for urban environments with limited space and accessibility.</h6></div>
+                                            <!-- .hero__inner -->
+
+            </section>
+
+{{/ifCond}}
+
+{{#ifCond ident '==' "sanitationtanks"}}
+<section id="hero" style="background-image: url('https://www.jojo.co.za/wp-content/themes/jojotanks/images/products-hero.jpg');">
+                            <div class="grid-container">
+                    <p class="hero__inner">
+                    </p><h1 class="hero__title">Sanitation Tanks</h1>
+                                                    <h6 class="hero__intro" style="color:#FFF">The ideal solution for urban environments with limited space and accessibility.</h6></div>
+                                            <!-- .hero__inner -->
+
+            </section>
+
+{{/ifCond}}
+
+{{#ifCond ident '==' "agriculturalproducts"}}
+<section id="hero" style="background-image: url('https://www.jojo.co.za/wp-content/uploads/2018/08/JOJO-Website-Garden-Home-Storage-Solutions.jpg');">
+                            <div class="grid-container">
+                    <p class="hero__inner">
+                    </p><h1 class="hero__title">Agricultural Products</h1>
+                                                    <h6 class="hero__intro" style="color:#FFF">The ideal solution for urban environments with limited space and accessibility.</h6></div>
+                                            <!-- .hero__inner -->
+
+            </section>
+
+{{/ifCond}}
+
+{{#ifCond ident '==' "gardenandhomeproducts"}}
+<section id="hero" style="background-image: url('https://www.jojo.co.za/wp-content/uploads/2018/08/JOJO-Website-Garden-Home-Storage-Solutions.jpg');">
+                            <div class="grid-container">
+                    <p class="hero__inner">
+                    </p><h1 class="hero__title">Garden and Home Products</h1>
+                                                    <h6 class="hero__intro" style="color:#FFF">The ideal solution for urban environments with limited space and accessibility.</h6></div>
+                                            <!-- .hero__inner -->
+
+            </section>
+
+{{/ifCond}}
+
+{{#ifCond ident '==' "pumpproducts"}}
+<section id="hero" style="background-image: url('https://www.jojo.co.za/wp-content/uploads/2018/08/JOJO-Website-Garden-Home-Storage-Solutions.jpg');">
+                            <div class="grid-container">
+                    <p class="hero__inner">
+                    </p><h1 class="hero__title">Pump Products</h1>
+                                                    <h6 class="hero__intro" style="color:#FFF">The ideal solution for urban environments with limited space and accessibility.</h6></div>
+                                            <!-- .hero__inner -->
+
+            </section>
+
+{{/ifCond}}
+<style>
+.thumb {
+  background-color:#e6e7e8;
+  margin-right:3%;
+}
+.thumb:hover{
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19)!important;
+  cursor : pointer;
+}
+
+</style>
+<div class="productsWrapper col-md-10 col-md-offset-1">
+    {{#if filtered}}
+        <div class="product-layout col-md-12">
+            {{#if menuLink}}
+            <h4>Category: <strong>{{menuLink.title}}</strong></h4>
+            {{else}}
+            <h4>Search results: <strong>{{searchTerm}}</strong></h4>
+            {{/if}}
+        </div>
+    {{/if}}
+    <div class="row product-layout">
+        {{#ifCond results.length '==' 0}}
+            <div class="col-md-12">
+                <p class="text-danger">No Groups found</p>
+            </div>
+        {{/ifCond}}
+        <div id="page" class="hfeed site grid-container  grid-parent">
+          <div id="content" class="site-content ">
+
+
+            <section class="solutions" style="background-color:#FFF;">
+              <div class="grid-container ">
+                <h2 class="solutions__title">Groups</h2>
+                <nav class="solutions-icon-nav">
+                  <ul class="solutions-icon-nav__list">
+                    {{#each results}}
+                      <li class="solutions-icon-nav__list-item-chemical-storage">
+                        <div class="solutions-icon-nav__list-item-inner"></div>
+                        <a href="/prod/{{this.productCategory}}/{{this.productGroup}}">
+                          <figure>
+                            <img src="https://www.jojo.co.za/wp-content/themes/jojotanks/images/icon-chemical-storage.png" alt="Chemical Storage Solutions" class="solutions-icon-nav__icon">
+                          </figure>
+                          <h4 style="letter-spacing: 1.1px;">{{this.productGroup}}</h4>
+                          <div class="icon-wrapper">
+                            <img class="icon-angle-right" src="https://www.jojo.co.za/wp-content/themes/jojotanks/images/icon-angle-right.png" alt="Icon Angle Right">
+                            <img class="icon-plus" src="https://www.jojo.co.za/wp-content/themes/jojotanks/images/icon-plus-white.png" alt="Icon Plus">
+                          </div><!-- .icon-wrapper -->
+                        </a>
+                      </li>
+                    {{/each}}
+                  </ul>
+                </nav>
+              </div>
+            </section>
+          </div>
+        </div>
+
+    </div>
+</div>
+<input type="hidden" id="productsPerPage" value="{{productsPerPage}}" >
+<input type="hidden" id="pageNum" value="{{pageNum}}">
+<input type="hidden" id="totalProductCount" value="{{totalProductCount}}">
+<input type="hidden" id="paginateUrl" value="{{paginateUrl}}">
+<input type="hidden" id="searchTerm" value="{{searchTerm}}">
+<div class="col-md-12">
+    <div id="pager" class="text-center"></div>
+</div>
+{{category}}
